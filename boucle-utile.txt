@@ -1,0 +1,10 @@
+##################
+# Boucle utile #
+##################
+
+#Check la crontab de tous les utilisateurs present dans /etc/passwd
+for i in $(cat /etc/passwd | cut -d ':' -f1) ;do crontab -u $i -l ;done
+
+#Check URL dans plusieurs fichier de log bz2 
+for i in '26' '27' '28' '29';do echo "##### Fichier Log files.log-2015-01-$i.bz2 ######" ; bzcat files-$i-02-2015.bz2 | grep "<URL>";done
+
